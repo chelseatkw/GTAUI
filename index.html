@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>GTA Control Panel</title>
+	<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
+	<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+function getQueryVariable(variable)
+{
+       var query = window.location.search.substring(1);
+       var vars = query.split("&");
+       for (var i=0;i<vars.length;i++) {
+               var pair = vars[i].split("=");
+               if(pair[0] == variable){return pair[1];}
+       }
+       return(false);
+}
+</script>
+</head>
+<body>
+
+<nav class="navbar navbar-default" role="navigation">
+	<div class="container-fluid">
+	<div class="navbar-header">
+		<a class="navbar-brand" href="index.html?page=1">GTA</a>
+	</div>
+	<div>
+		<ul class="nav navbar-nav">
+			<li ><a href="index.html?page=1">Unit Test Analysis</a></li>
+			<li><a href="index.html?page=2">Build Diff Analysis</a></li>
+			<li class="dropdown">
+				<a href="index.html?page=3" class="dropdown-toggle" data-toggle="dropdown">
+					Tool
+					<b class="caret"></b>
+				</a>
+				<ul class="dropdown-menu">
+					<li><a href="index.html?page=4">GoControl</a></li>
+					<li><a href="index.html?page=5">Doc</a></li>
+					
+				</ul>
+			</li>
+		</ul>
+	</div>
+	</div>
+</nav>
+
+<script type="text/javascript">
+var page=1;
+var url;
+page=getQueryVariable("page");
+alert(page);
+switch (page)
+{
+case "1":
+  url="summary.html";
+  break;
+case "2":
+  url="summary2.html";
+  break;
+case "3":
+  url="#";
+  break;
+case "4":
+  url="www.qq.com";
+  break;
+case "5":
+  url="www.baidu.com";
+  break;
+}
+alert(url);
+document.write("<iframe src="+url+" width='100%' height='900'></iframe>");
+</script>
+
+</body>
+</html>
