@@ -48,11 +48,14 @@ function getQueryVariable(variable)
 
 <script type="text/javascript">
 var page=1;
-var url;
+var url="summary.html";
 page=getQueryVariable("page");
 alert(page);
 switch (page)
 {
+case "false":
+  url="summary.html";
+  break;
 case "1":
   url="summary.html";
   break;
