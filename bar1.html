@@ -23,8 +23,8 @@ function fetchData(cb) {
     // 通过 setTimeout 模拟异步加载
     setTimeout(function () {
         cb({
-            categories: ["衬衫","羊毛衫","雪纺衫","裤子","高跟鞋","袜子"],
-            data: [5, 20, 36, 10, 10, 20]
+            categories: ["case1","case2","case3","case4","case5","case6"],
+            data: [5, 20, 30, 35, 50, 60]
         });
     }, 1000);
 }
@@ -32,18 +32,18 @@ function fetchData(cb) {
 // 初始 option
 option = {
     title: {
-        text: '异步数据加载示例'
+        text: 'JsonBar'
     },
     tooltip: {},
     legend: {
-        data:['销量']
+        data:['FailPct']
     },
     xAxis: {
         data: []
     },
     yAxis: {},
     series: [{
-        name: '销量',
+        name: 'FailPct',
         type: 'bar',
         data: []
     }]
@@ -62,7 +62,7 @@ fetchData(function (data) {
 
         series: [{
             // 根据名字对应到相应的系列
-            name: '销量',
+            name: 'FailPct',
             data: data.data
         }]
     });

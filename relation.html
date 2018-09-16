@@ -51,9 +51,18 @@ option = {
                 x: 300,
                 y: 300,
 				itemStyle: {
-        color: '#FF8000'
+        color: '#90EE90'
     }
-            }, {
+            },
+			{
+                name: 'case4',
+                x: 100,
+                y: 300,
+				itemStyle: {
+        color: '#90EE90'
+    }
+	}
+			, {
                 name: 'case1',
                 x: 800,
                 y: 300
@@ -61,7 +70,13 @@ option = {
                 name: 'Graphing Testing',
                 x: 550,
                 y: 100
-            }, {
+            },
+			{
+                name: 'case5',
+                x: 850,
+                y: 500
+            },
+			 {
                 name: 'case3',
                 x: 550,
                 y: 500
@@ -102,7 +117,12 @@ option = {
             }, {
                 source: 'case2',
                 target: 'case3'
-            }, {
+            },
+			{
+                source: 'case1',
+                target: 'case5'
+            },  
+			{
                 source: 'Graphing Testing',
                 target: 'case2'
             }],
