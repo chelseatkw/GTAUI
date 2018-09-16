@@ -50,7 +50,7 @@ function getQueryVariable(variable)
 var page=1;
 var url="summary.html";
 page=getQueryVariable("page");
-alert(page);
+
 switch (page)
 {
 case "false":
@@ -72,7 +72,6 @@ case "5":
   url="www.baidu.com";
   break;
 }
-alert(url);
 document.write("<iframe src="+url+" width='100%' height='900'></iframe>");
 </script>
 
