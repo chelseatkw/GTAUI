@@ -5,6 +5,7 @@
    </head>
    <body style="height: 100%; margin: 0">
        <div id="container" style="height: 100%"></div>
+	   <script src="http://libs.baidu.com/jquery/2.0.0/jquery.js"></script>
        <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/echarts.min.js"></script>
        <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts-gl/echarts-gl.min.js"></script>
        <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts-stat/ecStat.min.js"></script>
@@ -19,7 +20,7 @@ var dom = document.getElementById("container");
 var myChart = echarts.init(dom);
 var app = {};
 option = null;
-function fetchData(cb) {
+/*function fetchData(cb) {
     // 通过 setTimeout 模拟异步加载
     setTimeout(function () {
         cb({
@@ -27,7 +28,10 @@ function fetchData(cb) {
             data: [5, 20, 30, 35, 50, 60]
         });
     }, 1000);
-}
+}*/
+
+
+//alert(obj['categories']);
 
 // 初始 option
 option = {
@@ -49,27 +53,39 @@ option = {
     }]
 };
 
-fetchData(function (data) {
-    myChart.setOption({
+/*fetchData(function (data) {
+
+});*/;
+
+// 异步加载数据
+var obj;
+$.get('bar.json').done(function (data) {
+    // 填入数据
+	//obj=data;
+ alert(data['categories']);
+     myChart.setOption({
             xAxis: {
         type: 'value',
         boundaryGap: [0, 0.01]
     },
      yAxis: {
         type: 'category',
-        data: data.categories
+        data: data['categories']
     },
 
         series: [{
             // 根据名字对应到相应的系列
             name: 'FailPct',
-            data: data.data
-        }]
+            data: data['data']
+         }]
     });
-});;
+});
+
 if (option && typeof option === "object") {
     myChart.setOption(option, true);
 }
+
+
        </script>
    </body>
 </html>
