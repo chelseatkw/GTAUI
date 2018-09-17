@@ -1,0 +1,65 @@
+<html>
+  <head>
+      <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+     <script src="https://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
+     <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+     <script src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script>
+    <link rel="stylesheet" type="text/css" media="screen" href="css/tb.css" />
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+
+    var jsonData = $.ajax({
+      url: "getdb.php",
+      dataType: "json",
+      async: false
+     }).responseText;
+
+     var obj = jQuery.parseJSON( jsonData );
+
+         </script>
+    </head>
+    <body>
+
+     <script type="text/javascript">
+    document.write("<H4>Build Number --- "+obj[0].buildID+"</H4>");
+    </script>
+   <table class="bordered">
+    <thead>
+
+    <tr>
+        <th>ID</th>        
+        <th>Job</th>
+        <th>Success</th>
+        <th>Fail</th>
+        <th>Pass %</th>
+        <th>Tester</th>
+        <th>Start Time</th>
+        <th>Duration</th>
+        <th>Node</th>
+        <th>Ranorex Report</th>
+                 
+    </tr>
+    </thead>
+    <script type="text/javascript">
+      //alert(obj[0].successPct);
+      var len=obj.length;
+      for(var i=0;i<=len-1;i++){
+      document.write("<tr>");
+      document.write("<td>"+(i+1)+"</td>");
+      document.write("<td>"+obj[i].caseName+"</td>");
+      document.write("<td>"+obj[i].success+"</td>");
+      document.write("<td>"+obj[i].failed+"</td>");
+      document.write("<td>"+obj[i].successPct+"</td>");
+      document.write("<td>Chelsea</td>");
+      document.write("<td>"+obj[i].startTime+"</td>");
+      document.write("<td>#</td>");
+      document.write("<td>#</td>");
+      document.write("<td><a href='/GTAReports/"+obj[i].reportFile+"' target='view_window'>Ranorex report</a></td>");
+      document.write("</tr>");
+    }
+    </script>
+
+  </table>
+  </body>
+</html>
+
